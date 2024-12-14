@@ -1,0 +1,14 @@
+body{
+    /* text-align: center; */
+    background-color: rgb(94, 105, 204);
+    font-size: 30px;
+}
+.weblink{
+    color: rgb(0, 180, 0);
+    font-weight: bold;
+}
+.maincontent{
+    margin-top: 8%;
+    margin-inline-start: 35%;
+    width: 30%;
+}
