@@ -13,45 +13,27 @@ class vigenerClass{
         // this.abc_length2 = this.abc2.length;
     }
     encode(input, key) {
+        key = Math.floor(key);
         var output = "";
-        var keyindexes = [];
-        for (let i = 0; i < key.length; i++) {
-            var index_of_char = this.abc.indexOf(key[i]);
-            if (index_of_char == -1){
-                keyindexes.push(0);
-            }else{
-                keyindexes.push(index_of_char);
-            }
-        }
-        var keylenght = keyindexes.length;
         for (var i = 0; i < input.length; i++) {
             var index_of_char = this.abc.indexOf(input[i]);
             if (index_of_char == -1){         
                 output += input[i];
             }else{
-                output += this.abc[(this.abc.indexOf(input[i]) + keyindexes[i%keylenght]) % this.abc_length];
+                output += this.abc[(this.abc.indexOf(input[i]) + key) % this.abc_length];
             }
         }
         return output;
     }
     decode(input, key) {
+        key = Math.floor(key);
         var output = "";
-        var keyindexes = [];
-        for (let i = 0; i < key.length; i++) {
-            keyindexes.push(this.abc.length-this.abc.indexOf(key[i]));
-        }
-        var keylenght = keyindexes.length;
         for (var i = 0; i < input.length; i++) {
-            // console.log(input[i]);
-            // console.log(keyindexes[i%keylenght])
-            // console.log("DEBUG: " + mod((this.abc.indexOf(input[i]) + keyindexes[i%keylenght]), this.abc_length))
-            // console.log(this.abc[mod((this.abc.indexOf(input[i]) + keyindexes[i%keylenght]) % this.abc_length)]);
-            // console.log("--")
             var index_of_char = this.abc.indexOf(input[i]);
             if (index_of_char == -1){         
                 output += input[i];
             }else{
-                output += this.abc[(this.abc.indexOf(input[i]) + keyindexes[i%keylenght]) % this.abc_length];
+                output += this.abc[(this.abc.indexOf(input[i]) + key) % this.abc_length];
             }
         }
         return output;
