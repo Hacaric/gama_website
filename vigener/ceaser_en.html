@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="code.js"></script>
+    <title>Vigener Shifre</title>
+</head>
+<body onload="onload_()">
+    <!--
+    --
+    --
+    -- I LOST THE GAME :D
+    --
+    --
+    -->
+    <h1>Vigener Shifre</h1>
+    <textarea name="Input" id="input" placeholder="Enter text here" rows="5" cols="30"></textarea></br>
+    <textarea name="Key" id="key" placeholder="Enter key here" rows="2" cols="30"></textarea></br>
+    <textarea name="instant_output" id="instant_output" class="output" style="display: none;" disabled></textarea>
+    <button id="encode" class="submit" onclick="sample('encode')">Encode</button><button id="decode" class="submit" onclick="sample('decode')">Decode</button></br>
+    <div id="output_box">
+        <textarea name="Output" id="output" class="output" placeholder="Here will be output displayed" rows="5" cols="60" disabled></textarea>
+        <button id="copy_button" onclick="copy_output_to_clipboard()"><i class="material-icons">content_copy</i></button><!--&#128203;-->
+        <button id="push_to_input_button" onclick="push_output_to_input()"><i class="material-icons">ios_share</i></button>
+    </div>
+</body>
+</html>
