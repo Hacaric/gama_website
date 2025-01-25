@@ -1,23 +1,36 @@
+<!-- Examples from w3schools used ;) -->
+<!-- You just lost the game -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="mainstyle.css">
     <title>Gama</title>
+    <script src="script.js"></script>
 </head>
-<body>
+<body onclick="closeDropdown()" onload="setup()">
+    <div>
+        <ul class="navbar">
+        <li><a class="active" href="https://hacaric.github.io/gama_website/index.html">Domov</a></li>
+        <li><a href="https://prieskumnici-is.ddns.net/" target="_blank">91.Zbor</a></li>
+        <li class="dropdown">
+            <a onclick="toogleDropdown()" class="dropbtn">Šifry</a>
+            <div class="dropdown-content" id="dropdown-menu0">
+                <a href="https://hacaric.github.io/gama_website/vigener/vigener.html?lang=en">Vigenerova šifra</a>
+                <a href="https://hacaric.github.io/gama_website/ceaser/ceaser.html?lang=en">Ceaserova šifra</a>
+            </div>
+        </li>
+        </ul>
+    </div>
     <div class="maincontent">
-        <ul>
-            <h2>English links:</h2>
+        <!-- <ul style="list-style-type: none;">
+            <h2>Links:</h2>
             <li><a href="https://hacaric.github.io/gama_website/vigener/vigener.html?lang=en" class="weblink">Vigener Shifre</a></li>
             <li><a href="https://hacaric.github.io/gama_website/ceaser/ceaser.html?lang=en" class="weblink">Ceaser Shifre</a></li>
-        </ul>
-        <ul>
-            <h2>Slovak links:</h2>
-            <li><a href="https://hacaric.github.io/gama_website/vigener/vigener.html?lang=sk" class="weblink">Vigenerova šifra</a></li>
-            <li><a href="https://hacaric.github.io/gama_website/ceaser/ceaser.html?lang=sk" class="weblink">Ceaserova šifra</a></li>
-        </ul>
+        </ul> -->
+        <h1>Vitajte na stránske družiny Gama</h1>
     </div>
 </body>
 </html>
