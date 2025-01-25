@@ -45,7 +45,7 @@ function setup() {
 document.addEventListener("DOMContentLoaded", function() {
     var navbarDiv = document.getElementById("navbar");
     if (navbarDiv) {
-        fetch("navbar.html")
+        fetch(document.URL+"navbar.html")
             .then(response => response.text())
             .then(data => {
                 navbarDiv.innerHTML = data;
