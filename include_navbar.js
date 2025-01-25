@@ -1,3 +1,11 @@
+/*
+
+    Add the following code to the HTML file to include the navbar:
+    <script src="include_navbar.js"></script>
+    <div id="navbar"></div>
+
+*/
+
 var dropdownMenuIdList = ['dropdown-menu0']
 function sleep(milliseconds) {
     var start = new Date().getTime();
@@ -34,3 +42,17 @@ function setup() {
         dropdown.dataset.lastClick = 0;
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+    var navbarDiv = document.getElementById("navbar");
+    if (navbarDiv) {
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                navbarDiv.innerHTML = data;
+                // Initialize the navbar functions after loading
+                setup();
+                document.getElementsByTagName("body")[0].addEventListener("click", closeDropdown);
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    }
+});

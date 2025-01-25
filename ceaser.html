@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ceaser_style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
-    <script src="../code.js"></script>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <script src="shifre.js"></script>
+    <script src="include_navbar.js"></script>
     <title>Ceaser Shifre</title>
 </head>
-<body onload="onload_()">
+<body onload="setup_shifre('ceaser')">
+    <div id="navbar"></div>
     <h1>Ceaser Shifre</h1>
     <textarea name="Input" id="input" placeholder="Enter text here" rows="5" cols="30"></textarea></br>
     <input name="Key" id="key" placeholder="Enter key here" type="number"></input></br>
@@ -18,7 +20,7 @@
     <div id="output_box">
         <textarea name="Output" id="output" class="output" placeholder="Here will be output displayed" rows="5" cols="60" disabled></textarea>
         <button id="copy_button" onclick="copy_output_to_clipboard()"><i class="material-icons">content_copy</i></button><!--&#128203;-->
-        <button id="push_to_input_button" onclick="push_output_to_input()"><i class="material-icons">ios_share</i></button>
+        <button id="push_to_input_button" onclick="pushOutputToInput()"><i class="material-icons">ios_share</i></button>
     </div>
 </body>
 </html>

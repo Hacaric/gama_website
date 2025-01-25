@@ -4,25 +4,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="include_navbar.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="mainstyle.css">
     <title>Gama</title>
-    <script src="script.js"></script>
 </head>
-<body onclick="closeDropdown()" onload="setup()">
-    <div>
-        <ul class="navbar">
-        <li><a class="active" href="https://hacaric.github.io/gama_website/index.html">Domov</a></li>
-        <li><a href="https://prieskumnici-is.ddns.net/" target="_blank">91.Zbor</a></li>
-        <li class="dropdown">
-            <a onclick="toogleDropdown()" class="dropbtn">Šifry</a>
-            <div class="dropdown-content" id="dropdown-menu0">
-                <a href="https://hacaric.github.io/gama_website/vigener/vigener.html?lang=en">Vigenerova šifra</a>
-                <a href="https://hacaric.github.io/gama_website/ceaser/ceaser.html?lang=en">Ceaserova šifra</a>
-            </div>
-        </li>
-        </ul>
+<body>
+    <div id="navbar"></div>
+
     </div>
     <div class="maincontent">
         <!-- <ul style="list-style-type: none;">

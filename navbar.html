@@ -1,0 +1,24 @@
+<!-- 
+
+    Include navbar by adding this:
+
+    To head:    <script src="include_navbar.js"></script>
+    To body:    <div id="navbar"></div>
+-->
+<link rel="stylesheet" href="navbar.css">
+<div class="navbar_container">
+    <ul class="navbar">
+    <li><a class="active" href="https://hacaric.github.io/gama_website/index.html">Domov</a></li>
+    <li><a href="https://prieskumnici-is.ddns.net/" target="_blank">91.Zbor</a></li>
+    <li class="dropdown">
+        <a onclick="toogleDropdown()" class="dropbtn">Šifry</a>
+        <div class="dropdown-content" id="dropdown-menu0">
+            <a href="https://hacaric.github.io/gama_website/vigener/vigener.html?lang=en">Vigenerova šifra</a>
+            <a href="https://hacaric.github.io/gama_website/ceaser/ceaser.html?lang=en">Ceaserova šifra</a>
+        </div>
+    </li>
+    </ul>
+    <script>
+        document.getElementsByTagName("body")[0].addEventListener("click", closeDropdown);
+    </script>
+</div>

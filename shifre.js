@@ -87,8 +87,14 @@ class VigenerClass {
         return output.join("");
     }
 }
-
-function submit(operationType, shifreType) {
+var hard_written = false;
+var submit_values = {"text": "", "key": "", "operationType": "encode"};
+function submit_values_changed(text, key){
+    if (submit_values["text"] != text || submit_values["key"] != key){
+        return true;
+    }
+}
+function submit(operationType, shifreType, overwrite=true) {
     const input = document.getElementById("input").value;
     let shifre;
     if (shifreType === "ceaser") {
@@ -120,7 +126,16 @@ function submit(operationType, shifreType) {
         }
         return;
     }
-    document.getElementById("output").innerHTML = output;
+    if (overwrite || !hard_written || submit_values_changed(input, key)){
+        if (overwrite){
+            hard_written = true;
+        }
+        submit_values["text"] = input;
+        submit_values["key"] = key;
+        submit_values["shifreType"] = shifreType;
+        submit_values["operationType"] = operationType;
+        document.getElementById("output").innerHTML = output;
+    }
 }
 
 function vigener_submit(operationType) {
@@ -134,6 +149,12 @@ function ceaser_submit(operationType) {
 function pushOutputToInput() {
     const output = document.getElementById("output").value;
     document.getElementById("input").value = output;
+    if (submit_values["operationType"] == "encode"){
+        submit_values["operationType"] = "decode"
+    }else{
+        submit_values["operationType"] = "encode"
+    }
+    autorun();
 }
 
 function copyOutputToClipboard() {
@@ -142,16 +163,15 @@ function copyOutputToClipboard() {
 }
 
 function autorun() {
-    console.log("Debug: line 163 ran.");
+    console.log("autorun");
     if (shifre == null) {
         return null;
     }
-    submit("encode", shifre);
+    submit(submit_values["operationType"], shifre, overwrite=false);
 }
 
-function onload_(shifreType) {
+function setup_shifre(shifreType) {
     shifre = shifreType;
-    console.log("LOADEEEEED :D");
     const interval = setInterval(autorun, 500);
 
     //url decoding
