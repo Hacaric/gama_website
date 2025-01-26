@@ -142,7 +142,24 @@ const words = [
     "uzastny vaclav, bocian ktory stastie prinasa",
     "misko je kral",
     "matko je batman",
-    "matko je vydracena bomba"
+    "matko je vydracena bomba",
+    "urobme orlom druzinovku",
+    "vcera jsem v lese byl",
+    "kdyz nemuzes, pridej vic",
+    "mam rad, ked nas prepadne kosec v aute",
+    "milujem ked nam 13 dava do klubovne alarmy",
+    "co zas vyviedli ufoni?",
+    "krmite kapre?",
+    "mikulas nosi okna",
+    "ked sa ti v burke jezia vlasi, vyhladaj si tutotial",
+    "ja som malvinka z bety",
+    "bohate nam staci vyhrat",
+    "moja firma trochu vyhorela",
+    "vyhladaj si na googli husokacku",
+    "co je gurlag?",
+    "ked vydis zelenu cmuhu, je to misco",
+    "obloha plna knakov",
+    "osi chodia na lipu pre med",
 ]
 
 var random_text = ""; //this is answer
