@@ -10,23 +10,16 @@ class MorseClass {
         this.abc = morse_code_dict;
         this.abcLength = this.abc.length;
     }
-    format(input, maxLineLength = 50) {
-        var output = "";
-        var latestNew = 0;
-        input = input.split("/")
-        var len = 0;
-        for (var i = 0; i < input.length; i++) {
-            len += input[i].length;
-            if (len > maxLineLength) {
-                output += "\n";
-                len = input[i].length;
-            }
-            output += input[i]+"/";
+    format(input) {
+        var i = input.length-1;
+        const whitespace = [" ", "\n", "\t"];
+        while (whitespace.includes(input[i])){
+            input = input.slice(0, -1);
+            i--;
         }
-        output = output.slice(0,-1);
-        return output;
+        return input;
     }
-    encode(input, maxLineLength = 25) {
+    encode(input) {
         var output = [];
         input = input.toUpperCase();
         for (let i = 0; i < input.length; i++) {
@@ -48,7 +41,7 @@ class MorseClass {
                 output.push(input[i]);
             }
         }
-        return this.format(output.join("/"), maxLineLength=maxLineLength);
+        return this.format(output.join("/"));
     }
     decode(input) {
         input = input.replaceAll("\n","").replaceAll(" ","").replaceAll("\t","");
@@ -79,8 +72,7 @@ class MorseClassWithKey {
         this.morse = new MorseClass();
     }
     encode(input, key) {
-        var maxLineLength = document.getElementById("output").cols;
-        return this.morse.encode(input, maxLineLength);
+        return this.morse.encode(input);
     }
     decode(input, key) {
         return this.morse.decode(input);

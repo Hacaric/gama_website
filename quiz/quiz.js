@@ -61,21 +61,26 @@ class MorseClass {
         this.abcLength = this.abc.length;
     }
     format(input, maxLineLength = 50) {
-        var output = "";
-        var latestNew = 0;
-        input = input.split("/")
-        var len = 0;
-        for (var i = 0; i < input.length; i++) {
-            len += input[i].length;
-            if (len > maxLineLength) {
-                output += "\n";
-                len = input[i].length;
-            }
-            output += input[i]+"/";
+        // var latestNew = 0;
+        // input = input.split("/")
+        // var len = 0;
+        // for (var i = 0; i < input.length; i++) {
+        //     len += input[i].length;
+        //     if (len > maxLineLength) {
+        //         output += "\n";
+        //         len = input[i].length;
+        //     }
+        //     output += input[i]+"/";
+        // }
+        // output = output.slice(0,-1);
+        var i = input.length-1;
+        const whitespace = [" ", "\n", "\t"];
+        while (whitespace.includes(input[i])){
+            input = input.slice(0, -1);
+            i--;
         }
-        output = output.slice(0,-1);
-        return output;
-    }
+        return input;
+    };
     encode(input, maxLineLength = 25) {
         var output = [];
         input = input.toUpperCase();
@@ -99,7 +104,7 @@ class MorseClass {
             }
         }
         return this.format(output.join("/"), maxLineLength=maxLineLength);
-    }
+    };
     decode(input) {
         input = input.replaceAll("\n","").replaceAll(" ","").replaceAll("\t","");
         var output = [];
@@ -123,12 +128,12 @@ class MorseClass {
         return output.join("").toLowerCase();
     }
 }
-function cutSpacesFromEnd(input){
-    while (input[input.length-1] == " "){
-        input = input.slice(0, -1);
-    }
-    return input;
-}
+// function cutSpacesFromEnd(input){
+//     while (input[input.length-1] == " "){
+//         input = input.slice(0, -1);
+//     }
+//     return input;
+// }
 
 const words = [
     "gamma je super", 
@@ -175,17 +180,17 @@ const words = [
     "osi chodia na lipu pre med",
 ]
 
-var random_text = ""; //this is answer
+var error_traceback = ""; //this is answer
 function new_assigment(){
     var morse = new MorseClass(); 
-    globalThis.random_text = words[Math.floor(Math.random() * words.length)];
+    globalThis.error_traceback = words[Math.floor(Math.random() * words.length)];
     try{
         var maxLineLength = document.getElementById("assigment").cols;
     }catch{
         console.log("[Error:73] cols not found");
         var maxLineLength = 50;    
     }
-    var text = morse.encode(globalThis.random_text, maxLineLength=maxLineLength);
+    var text = morse.encode(globalThis.error_traceback, maxLineLength=maxLineLength);
     document.getElementById("answer_input").value = "";
     var assigment = document.getElementById("assigment");
     assigment.innerHTML = text;
@@ -193,8 +198,8 @@ function new_assigment(){
 function submit_answer(){
     var user_answer = document.getElementById("answer_input").value;
     var morse = new MorseClass();
-    var answer_after_coding = morse.decode(morse.encode(globalThis.random_text));
-    if (cutSpacesFromEnd(user_answer).toLowerCase() == globalThis.random_text.toLowerCase()){
+    var answer_after_coding = morse.decode(morse.encode(globalThis.error_traceback));
+    if (morse.format(user_answer).toLowerCase() == globalThis.error_traceback.toLowerCase()){
         alert("Spravne!");
     }else{
         alert("Nespravne!");

@@ -27,6 +27,18 @@ function closeDropdown(){
 function toogleDropdown(){
     for (var i = 0; i < dropdownMenuIdList.length; i++){
         var dropdown = document.getElementById(dropdownMenuIdList[i]);
+        console.log(dropdown);
+        try{
+            var arrow = dropdown.querySelector('i');
+            console.log(arrow);
+            if (arrow.classList.contains('fa-arrow-down')){
+                arrow.classList.remove('fa-arrow-down');
+                arrow.classList.add('fa-arrow-up');
+            }else{
+                arrow.classList.remove('fa-arrow-up');
+                arrow.classList.add('fa-arrow-down');
+            }
+        }catch(e){console.log(e)}
         if (dropdown.style.display == 'none'){
             dropdown.style.display = 'block';
             dropdown.dataset.lastClick = new Date().getTime();
