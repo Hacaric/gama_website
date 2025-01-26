@@ -9,42 +9,37 @@
     padding: 5px;
 }
 #challenge_table{
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 0;
     border: 1px solid #e0e0e0;
     resize:none;
     border-radius: 5px;
     padding: 20px;
+    /* width: 80vw;
+    height: 60vh; */
 }
-#challenge_table td{
+/* #challenge_table td{
+    width: 100%;
+    height: 100%;
     padding: 5px;
-    /* border: 1px solid #e0e0e0; */
-}
-#challenge_assigment{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
-    resize:none;
+    border: 1px solid #e0e0e0;
+} */
+#assigment{
+    padding: 10px;
     border-radius: 5px;
-    padding: 5px;
-}
-#assignment{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
     resize:none;
-    border-radius: 5px;
-    padding: 5px;
+    width: 60vw;
+    height: 20%;
+    background-color: #e0e0e096;
+    cursor: text;
 }
 #answer_input{
     resize:none;
+    padding: 10px;
     border-radius: 5px;
+    width: 60vw;
+    height: 15%;
+    background-color: rgba(255, 255, 255, 0.678);
 }
 .button{
     font-size: large;

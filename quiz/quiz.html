@@ -15,7 +15,7 @@
     <div id="navbar"></div>
     <div class="maincontent">
         <h1>Otestuj sa z morzeovky</h1>
-        <div id="challenge_container">
+        <!-- <div id="challenge_container">
             <table id="challenge_table">
                 <tr>
                     <td><h3 id="challenge">Rozšifruj:</h3></td>
@@ -30,8 +30,19 @@
                     <td><button class="button" id="submit_button" onclick="submit_answer()">Odoslať</button></td>
                 </tr>
             </table>
-            
-            
+        </div> -->
+        <div id="challenge_container">
+            <div id="challenge_table">
+                <h3 id="challenge">Rozšifruj:</h3>
+                <textarea id="assigment" rows="5" cols="40" disabled>Loading...</textarea>
+                <br>
+                <h3 id="challenge">Odpoveď:</h3>
+                <textarea id="answer_input" rows="5" cols="40"></textarea>
+                <br>
+                <button class="button" onclick="new_assigment()">Inú šifru</button>
+                <button class="button" id="submit_button" onclick="submit_answer()">Odoslať</button>
+            </div>
         </div>
+    </div>
 </body>
 </html>
