@@ -1,3 +1,4 @@
+
 const undefinedChar = "\uFFFD";
 var shifre = null;
 
@@ -87,16 +88,16 @@ class VigenerClass {
         return output.join("");
     }
 }
-var hard_written = false;
 var submit_values = {"text": "", "key": "", "operationType": "encode"};
 function submit_values_changed(text, key){
     if (submit_values["text"] != text || submit_values["key"] != key){
         return true;
     }
 }
+
 function submit(operationType, shifreType, overwrite=true) {
-    const input = document.getElementById("input").value;
-    let shifre;
+    var input = document.getElementById("input").value;
+    var shifre;
     if (shifreType === "ceaser") {
         shifre = new CeaserClass();
     } else if (shifreType === "vigener") {
@@ -105,9 +106,13 @@ function submit(operationType, shifreType, overwrite=true) {
         console.error("Unknown shifre type: " + shifreType);
         return;
     }
-    const key = document.getElementById("key").value;
+    var key = document.getElementById("key").value;
     if (!key) {
-        return;
+        submit_values["text"] = input;
+        submit_values["key"] = key;
+        submit_values["shifreType"] = shifreType;
+        submit_values["operationType"] = operationType;
+        document.getElementById("output").innerHTML = "";
     }
     let output;
     if (operationType === "encode") {
@@ -126,10 +131,7 @@ function submit(operationType, shifreType, overwrite=true) {
         }
         return;
     }
-    if (overwrite || !hard_written || submit_values_changed(input, key)){
-        if (overwrite){
-            hard_written = true;
-        }
+    if (overwrite || submit_values_changed(input, key)){
         submit_values["text"] = input;
         submit_values["key"] = key;
         submit_values["shifreType"] = shifreType;

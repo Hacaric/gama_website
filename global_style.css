@@ -1,0 +1,19 @@
+html{
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    font-size: 30px;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    background-color: cadetblue;
+    background-image: url("https://hacaric.github.io/gama_website/images/background.jpg");
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}

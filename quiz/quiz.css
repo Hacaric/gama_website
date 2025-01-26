@@ -1,0 +1,51 @@
+#challenge_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    resize:none;
+    border-radius: 5px;
+    padding: 5px;
+}
+#challenge_table{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border: 1px solid #e0e0e0;
+    resize:none;
+    border-radius: 5px;
+    padding: 20px;
+}
+#challenge_table td{
+    padding: 5px;
+    /* border: 1px solid #e0e0e0; */
+}
+#challenge_assigment{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    resize:none;
+    border-radius: 5px;
+    padding: 5px;
+}
+#answer_input{
+    resize:none;
+    border-radius: 5px;
+}
+#submit_button{
+    font-size: large;
+    width: 300px;
+    height: 40px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    background-color:rgb(60, 112, 18);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0.5%;
+    margin-top: 20px;
+}

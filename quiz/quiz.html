@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cvičenie</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <script src="../include_navbar.js"></script>
+    <link rel="stylesheet" href="../global_style.css">
+    <link rel="stylesheet" href="./quiz.css">
+    <!-- <script src="../sifre/shifre.js" type="module"></script> -->
+    <script src="./quiz.js"></script>
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="maincontent">
+        <h1>Otestuj sa z morzeovky</h1>
+        <div id="challenge_container">
+            <table id="challenge_table">
+                <tr>
+                    <td><h3 id="challenge">Rozšifruj:</h3></td>
+                    <td><textarea id="assigment" disabled rows="5" cols="40">Loading...</textarea></td>
+                </tr>
+                <tr>
+                    <td><h3 id="challenge">Odpoveď:</h3></td>
+                    <td><textarea id="answer_input" rows="5" cols="40"></textarea></td>
+                </tr>
+            </table>
+            <td><button id="submit_button" onclick="submit_answer()">Odoslať</button></td>
+            
+            
+        </div>
+</body>
+</html>

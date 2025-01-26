@@ -45,12 +45,15 @@ function setup() {
 document.addEventListener("DOMContentLoaded", function() {
     var navbarDiv = document.getElementById("navbar");
     if (navbarDiv) {
-         fetch("./navbar.html")
+        const scriptPath = document.querySelector('script[src$="include_navbar.js"]').src;
+        const navbarPath = scriptPath.replace(/\/[^\/]+$/, '/navbar.html');
+        const navbarCssPath = scriptPath.replace(/\/[^\/]+$/, '/navbar.css');
+         fetch(navbarPath)
             .then(response => response.text())
             .then(data => {
                 navbarDiv.innerHTML = data;
-                // Initialize the navbar functions after loading
                 setup();
+                document.getElementById("navbar_css").setAttribute("href", navbarCssPath);
                 document.getElementsByTagName("body")[0].addEventListener("click", closeDropdown);
             })
             .catch(error => console.error('Error loading navbar:', error));
