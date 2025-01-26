@@ -132,7 +132,7 @@ function cutSpacesFromEnd(input){
 const words = [
     "gamma je super", 
     "skvely ivan", 
-    "morzeovka nas bavi", 
+    "morseovka nas bavi", 
     "ja jsem chnapik", 
     "jeden dva tri", 
     "ahoj jak sa mas", 
@@ -143,7 +143,7 @@ const words = [
     "tesim sa na skautsky tabor",
     "mam rad programovanie",
     "dnes je pekny den",
-    "ucim sa morzeovku",
+    "ucim sa morseovku",
     "mam rad skauting",
     "rad citam knihy",
     "varim si cajicky",
