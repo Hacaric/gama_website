@@ -36,22 +36,22 @@ const morse_code_dict = [
     '7', '--...',
     '8', '---..',
     '9', '----.',
-    '.', '.-.-.-',
-    ',', '--..--',
-    '?', '..--..',
-    "'", '.----.',
-    '!', '-.-.--',
-    '/', '-..-.',
-    '&', '.-...',
-    ':', '---...',
-    ';', '-.-.-.',
-    '=', '-...-',
-    '+', '.-.-.',
-    '-', '-....-',
-    '_', '..--.-',
-    '"', '.-..-.',
-    '$', '...-..-',
-    '@', '.--.-.',
+    // '.', '.-.-.-',
+    // ',', '--..--',
+    // '?', '..--..',
+    // "'", '.----.',
+    // '!', '-.-.--',
+    // '/', '-..-.',
+    // '&', '.-...',
+    // ':', '---...',
+    // ';', '-.-.-.',
+    // '=', '-...-',
+    // '+', '.-.-.',
+    // '-', '-....-',
+    // '_', '..--.-',
+    // '"', '.-..-.',
+    // '$', '...-..-',
+    // '@', '.--.-.',
     ' ', '',
     '\n', '/',
 ]
@@ -117,7 +117,33 @@ function cutSpacesFromEnd(input){
     return input;
 }
 
-const words = ["gamma je super", "skvely ivan", "morzeovka nas bavi", "ja jsem chnapik", "jeden dva tri", "ahoj jak sa mas", "prehral som", "ideme na druzinu roka", "dnes pojdem von", "pretoze malu betu lubi boh", "tesim sa na skautsky tabor"]
+const words = [
+    "gamma je super", 
+    "skvely ivan", 
+    "morzeovka nas bavi", 
+    "ja jsem chnapik", 
+    "jeden dva tri", 
+    "ahoj jak sa mas", 
+    "prehral som", 
+    "ideme na druzinu roka", 
+    "dnes pojdem von", 
+    "pretoze malu betu lubi boh", 
+    "tesim sa na skautsky tabor",
+    "mam rad programovanie",
+    "dnes je pekny den",
+    "ucim sa morzeovku",
+    "mam rad skauting",
+    "rad citam knihy",
+    "varim si cajicky",
+    "mam rad sever proti juhu",
+    "chodim na trojkopciak",
+    "rad varim kapustove fliacky",
+    "mam rad vaclava",
+    "uzastny vaclav, bocian ktory stastie prinasa",
+    "misko je kral",
+    "matko je batman",
+    "matko je vydracena bomba"
+]
 
 var random_text = ""; //this is answer
 function new_assigment(){
@@ -138,7 +164,6 @@ function submit_answer(){
     var user_answer = document.getElementById("answer_input").value;
     if (cutSpacesFromEnd(user_answer).toLowerCase() == globalThis.random_text.toLowerCase()){
         alert("Spravne!");
-        new_assigment();
     }else{
         alert("Nespravne!");
     }
