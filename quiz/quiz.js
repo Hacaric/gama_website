@@ -93,6 +93,7 @@ class MorseClass {
     }
     decode(input) {
         var output = [];
+        input.replace("\n", "").replace(" ", "");
         var inputArray = input.split("/");
         for (let i = 0; i < inputArray.length; i++) {
             try {
@@ -139,7 +140,7 @@ const words = [
     "chodim na trojkopciak",
     "rad varim kapustove fliacky",
     "mam rad vaclava",
-    "uzastny vaclav, bocian ktory stastie prinasa",
+    "uzastny vaclav bocian ktory stastie prinasa",
     "misko je kral",
     "matko je batman",
     "matko je vydracena bomba",
@@ -179,6 +180,8 @@ function new_assigment(){
 }
 function submit_answer(){
     var user_answer = document.getElementById("answer_input").value;
+    var morse = new MorseClass();
+    var answer_after_coding = morse.decode(morse.encode(globalThis.random_text));
     if (cutSpacesFromEnd(user_answer).toLowerCase() == globalThis.random_text.toLowerCase()){
         alert("Spravne!");
     }else{
