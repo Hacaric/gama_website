@@ -62,26 +62,35 @@ class MorseClass {
     }
     format(input, maxLineLength = 50) {
         var output = "";
-        var latestSpace = 0;
-        for (var i = 0; i < input.length-1; i++) {
-            if (input[i] == "/") {
-                latestSpace = i;
+        var latestNew = 0;
+        input = input.split("/")
+        var len = 0;
+        for (var i = 0; i < input.length; i++) {
+            len += input[i].length;
+            if (len > maxLineLength) {
+                output += "\n";
+                len = input[i].length;
             }
-            if (i % maxLineLength == 0 && i != 0) {
-                output = output.slice(0,latestSpace) + "/\n" + output.slice(latestSpace+1);
-            }
-            output += input[i];
+            output += input[i]+"/";
         }
+        output = output.slice(0,-1);
         return output;
     }
-    encode(input, maxLineLength = 50) {
+    encode(input, maxLineLength = 25) {
         var output = [];
         input = input.toUpperCase();
         for (let i = 0; i < input.length; i++) {
             try {
+                if (input[i] == ".") {
+                    output.push(".-.-.-");
+                    continue;
+                }else if (input[i] == "-") {
+                    output.push("-....-");
+                    continue;
+                }
                 const index = this.abc.indexOf(input[i]);
                 if (index === -1) {
-                    output.push(input[i]);
+                    throw "Unknown character";
                 } else {
                     output.push(this.abc[index + 1]);
                 }
@@ -89,28 +98,30 @@ class MorseClass {
                 output.push(input[i]);
             }
         }
-        return this.format(output.join("/"), maxLineLength=maxLineLength)+"///";
+        return this.format(output.join("/"), maxLineLength=maxLineLength);
     }
     decode(input) {
         var output = [];
-        input.replace("\n", "").replace(" ", "");
         var inputArray = input.split("/");
         for (let i = 0; i < inputArray.length; i++) {
             try {
                 const index = this.abc.indexOf(inputArray[i]);
                 if (index === -1) {
-                    output.push(inputArray[i]);
+                    throw "Unknown character";
                 } else {
                     output.push(this.abc[index - 1]);
                 }
             } catch (error) {
-                output.push(inputArray[i]);
+                if (inputArray[i].replaceAll("-","").replaceAll(".","") == "") {
+                    output.push(undefinedChar);
+                }else{
+                    output.push(inputArray[i]);
+                }
             }
         }
         return output.join("").toLowerCase();
     }
 }
-
 function cutSpacesFromEnd(input){
     while (input[input.length-1] == " "){
         input = input.slice(0, -1);

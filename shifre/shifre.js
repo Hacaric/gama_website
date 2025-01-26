@@ -12,26 +12,35 @@ class MorseClass {
     }
     format(input, maxLineLength = 50) {
         var output = "";
-        var latestSpace = 0;
-        for (var i = 0; i < input.length-1; i++) {
-            if (input[i] == "/") {
-                latestSpace = i;
+        var latestNew = 0;
+        input = input.split("/")
+        var len = 0;
+        for (var i = 0; i < input.length; i++) {
+            len += input[i].length;
+            if (len > maxLineLength) {
+                output += "\n";
+                len = input[i].length;
             }
-            if (i % maxLineLength == 0 && i != 0) {
-                output = output.slice(0,latestSpace) + "/\n" + output.slice(latestSpace);
-            }
-            output += input[i];
+            output += input[i]+"/";
         }
+        output = output.slice(0,-1);
         return output;
     }
-    encode(input, maxLineLength = 50) {
+    encode(input, maxLineLength = 25) {
         var output = [];
         input = input.toUpperCase();
         for (let i = 0; i < input.length; i++) {
             try {
+                if (input[i] == ".") {
+                    output.push(".-.-.-");
+                    continue;
+                }else if (input[i] == "-") {
+                    output.push("-....-");
+                    continue;
+                }
                 const index = this.abc.indexOf(input[i]);
                 if (index === -1) {
-                    output.push(input[i]);
+                    throw "Unknown character";
                 } else {
                     output.push(this.abc[index + 1]);
                 }
@@ -39,7 +48,7 @@ class MorseClass {
                 output.push(input[i]);
             }
         }
-        return this.format(output.join("/"), maxLineLength=maxLineLength)+"///";
+        return this.format(output.join("/"), maxLineLength=maxLineLength);
     }
     decode(input) {
         var output = [];
@@ -48,18 +57,34 @@ class MorseClass {
             try {
                 const index = this.abc.indexOf(inputArray[i]);
                 if (index === -1) {
-                    output.push(inputArray[i]);
+                    throw "Unknown character";
                 } else {
                     output.push(this.abc[index - 1]);
                 }
             } catch (error) {
-                output.push(inputArray[i]);
+                if (inputArray[i].replaceAll("-","").replaceAll(".","") == "") {
+                    output.push(undefinedChar);
+                }else{
+                    output.push(inputArray[i]);
+                }
             }
         }
         return output.join("").toLowerCase();
     }
 }
 
+class MorseClassWithKey {
+    constructor() {
+        this.morse = new MorseClass();
+    }
+    encode(input, key) {
+        var maxLineLength = document.getElementById("output").cols;
+        return this.morse.encode(input, maxLineLength);
+    }
+    decode(input, key) {
+        return this.morse.decode(input);
+    }
+}
 
 class CeaserClass {
     constructor() {
@@ -144,8 +169,8 @@ class VigenerClass {
     }
 }
 var submit_values = {"text": "", "key": "", "operationType": "encode"};
-function submit_values_changed(text, key){
-    if (submit_values["text"] != text || submit_values["key"] != key){
+function submit_values_changed(text, key, operationType){
+    if (submit_values["text"] != text || submit_values["key"] != key || submit_values["operationType"] != operationType){
         return true;
     }
 }
@@ -153,23 +178,32 @@ function submit_values_changed(text, key){
 function submit(operationType, shifreType, overwrite=true) {
     var input = document.getElementById("input").value;
     var shifre;
-    if (shifreType === "ceaser") {
+    if (shifreType == "ceaser") {
         shifre = new CeaserClass();
-    } else if (shifreType === "vigener") {
+    } else if (shifreType == "vigener") {
         shifre = new VigenerClass();
+    } else if (shifreType == "morse") {
+        shifre = new MorseClassWithKey();
     } else {
         console.error("Unknown shifre type: " + shifreType);
         return;
     }
-    var key = document.getElementById("key").value;
-    if (!key) {
-        submit_values["text"] = input;
-        submit_values["key"] = key;
-        submit_values["shifreType"] = shifreType;
-        submit_values["operationType"] = operationType;
-        document.getElementById("output").innerHTML = "";
+    try {
+        var key = document.getElementById("key").value;
+        if (!key) {
+            submit_values["text"] = input;
+            submit_values["key"] = key;
+            submit_values["shifreType"] = shifreType;
+            submit_values["operationType"] = operationType;
+            document.getElementById("output").value = "";
+        }
+    } catch (error) {
+        var key = null;
     }
-    let output;
+    if (!submit_values_changed(input, key, operationType)){
+        return;
+    }
+    var output;
     if (operationType === "encode") {
         output = shifre.encode(input, key);
     } else if (operationType === "decode") {
@@ -186,12 +220,12 @@ function submit(operationType, shifreType, overwrite=true) {
         }
         return;
     }
-    if (overwrite || submit_values_changed(input, key)){
+    if (overwrite || submit_values_changed(input, key, operationType)){
         submit_values["text"] = input;
         submit_values["key"] = key;
         submit_values["shifreType"] = shifreType;
         submit_values["operationType"] = operationType;
-        document.getElementById("output").innerHTML = output;
+        document.getElementById("output").value = output;
     }
 }
 
@@ -201,6 +235,10 @@ function vigener_submit(operationType) {
 
 function ceaser_submit(operationType) {
     submit(operationType, "ceaser");
+}
+
+function morse_submit(operationType) {
+    submit(operationType, "morse");
 }
 
 function pushOutputToInput() {
@@ -220,9 +258,16 @@ function copyOutputToClipboard() {
 }
 
 function autorun() {
-    console.log("autorun");
+    console.log("Auto translating... (delay: 0.5sec)");
     if (shifre == null) {
         return null;
+    }
+    if (shifre == "morse" && (submit_values["text"] == "" || document.getElementById("input").value.length <= 1)) {
+        if (document.getElementById("input").value.indexOf(".") != -1 || document.getElementById("input").value.indexOf("-") != -1){
+            submit_values["operationType"] = "decode";
+        }else{
+            submit_values["operationType"] = "encode";
+        }
     }
     submit(submit_values["operationType"], shifre, overwrite=false);
 }
