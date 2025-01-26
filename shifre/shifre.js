@@ -5,6 +5,61 @@ var shifre = null;
 function mod(x, y) {
     return ((x % y) + y) % y;
 }
+class MorseClass {
+    constructor() {
+        this.abc = morse_code_dict;
+        this.abcLength = this.abc.length;
+    }
+    format(input, maxLineLength = 50) {
+        var output = "";
+        var latestSpace = 0;
+        for (var i = 0; i < input.length-1; i++) {
+            if (input[i] == "/") {
+                latestSpace = i;
+            }
+            if (i % maxLineLength == 0 && i != 0) {
+                output = output.slice(0,latestSpace) + "/\n" + output.slice(latestSpace);
+            }
+            output += input[i];
+        }
+        return output;
+    }
+    encode(input, maxLineLength = 50) {
+        var output = [];
+        input = input.toUpperCase();
+        for (let i = 0; i < input.length; i++) {
+            try {
+                const index = this.abc.indexOf(input[i]);
+                if (index === -1) {
+                    output.push(input[i]);
+                } else {
+                    output.push(this.abc[index + 1]);
+                }
+            } catch (error) {
+                output.push(input[i]);
+            }
+        }
+        return this.format(output.join("/"), maxLineLength=maxLineLength)+"///";
+    }
+    decode(input) {
+        var output = [];
+        var inputArray = input.split("/");
+        for (let i = 0; i < inputArray.length; i++) {
+            try {
+                const index = this.abc.indexOf(inputArray[i]);
+                if (index === -1) {
+                    output.push(inputArray[i]);
+                } else {
+                    output.push(this.abc[index - 1]);
+                }
+            } catch (error) {
+                output.push(inputArray[i]);
+            }
+        }
+        return output.join("").toLowerCase();
+    }
+}
+
 
 class CeaserClass {
     constructor() {
@@ -183,3 +238,60 @@ function setup_shifre(shifreType) {
     console.log(language);
 }
 
+
+const morse_code_dict = [
+    'A', '.-',
+    'B', '-...',
+    'C', '-.-.',
+    'D', '-..',
+    'E', '.',
+    'F', '..-.',
+    'G', '--.',
+    'H', '....',
+    'I', '..',
+    'J', '.---',
+    'K', '-.-',
+    'L', '.-..',
+    'M', '--',
+    'N', '-.',
+    'O', '---',
+    'P', '.--.',
+    'Q', '--.-',
+    'R', '.-.',
+    'S', '...',
+    'T', '-',
+    'U', '..-',
+    'V', '...-',
+    'W', '.--',
+    'X', '-..-',
+    'Y', '-.--',
+    'Z', '--..',
+    '0', '-----',
+    '1', '.----',
+    '2', '..---',
+    '3', '...--',
+    '4', '....-',
+    '5', '.....',
+    '6', '-....',
+    '7', '--...',
+    '8', '---..',
+    '9', '----.',
+    '.', '.-.-.-',
+    ',', '--..--',
+    '?', '..--..',
+    "'", '.----.',
+    '!', '-.-.--',
+    '/', '-..-.',
+    '&', '.-...',
+    ':', '---...',
+    ';', '-.-.-.',
+    '=', '-...-',
+    '+', '.-.-.',
+    '-', '-....-',
+    '_', '..--.-',
+    '"', '.-..-.',
+    '$', '...-..-',
+    '@', '.--.-.',
+    ' ', '',
+    '\n', '/',
+]
