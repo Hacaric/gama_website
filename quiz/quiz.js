@@ -80,7 +80,7 @@ function new_assigment(){
 }
 function submit_answer(){
     var user_answer = document.getElementById("answer_input").value;
-    if (cutSpacesFromEnd(user_answer) == globalThis.answer){
+    if (cutSpacesFromEnd(user_answer).toLowerCase() == globalThis.answer.toLowerCase()){
         alert("Spravne!");
         new_assigment();
     }else{
