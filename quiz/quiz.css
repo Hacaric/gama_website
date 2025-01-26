@@ -32,11 +32,19 @@
     border-radius: 5px;
     padding: 5px;
 }
+#assignment{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    resize:none;
+    border-radius: 5px;
+    padding: 5px;
+}
 #answer_input{
     resize:none;
     border-radius: 5px;
-}
-#submit_button{
 }
 .button{
     font-size: large;
