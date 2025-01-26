@@ -51,6 +51,7 @@ class MorseClass {
         return this.format(output.join("/"), maxLineLength=maxLineLength);
     }
     decode(input) {
+        input = input.replaceAll("\n","").replaceAll(" ","").replaceAll("\t","");
         var output = [];
         var inputArray = input.split("/");
         for (let i = 0; i < inputArray.length; i++) {

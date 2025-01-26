@@ -101,6 +101,7 @@ class MorseClass {
         return this.format(output.join("/"), maxLineLength=maxLineLength);
     }
     decode(input) {
+        input = input.replaceAll("\n","").replaceAll(" ","").replaceAll("\t","");
         var output = [];
         var inputArray = input.split("/");
         for (let i = 0; i < inputArray.length; i++) {
@@ -159,7 +160,7 @@ const words = [
     "vcera jsem v lese byl",
     "kdyz nemuzes, pridej vic",
     "mam rad, ked nas prepadne kosec v aute",
-    "milujem ked nam 13 dava do klubovne alarmy",
+    "milujem ked nam 13ka dava do klubovne alarmy",
     "co zas vyviedli ufoni?",
     "krmite kapre?",
     "mikulas nosi okna",
