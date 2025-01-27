@@ -81,7 +81,8 @@ class MorseClassWithKey {
 
 class CeaserClass {
     constructor() {
-        this.abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~\\ áéíóúďťňľčšÁÉÍÓÚĎŤŇĽČŠúÚňô";
+        this.abc = "abcdefghijklmnopqrstuvwxyz";
+        //this.abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~\\ áéíóúďťňľčšÁÉÍÓÚĎŤŇĽČŠúÚňô";
         this.abcLength = this.abc.length;
     }
 
@@ -89,7 +90,7 @@ class CeaserClass {
         key = Math.floor(key);
         const output = [];
         for (let i = 0; i < input.length; i++) {
-            const index = this.abc.indexOf(input[i]);
+            const index = this.abc.indexOf(input[i].toLowerCase());
             if (index === -1) {
                 output.push(input[i]);
             } else {
@@ -103,7 +104,7 @@ class CeaserClass {
         key = Math.floor(key);
         const output = [];
         for (let i = 0; i < input.length; i++) {
-            const index = this.abc.indexOf(input[i]);
+            const index = this.abc.indexOf(input[i].toLowerCase());
             if (index === -1) {
                 output.push(input[i]);
             } else {
@@ -116,7 +117,8 @@ class CeaserClass {
 
 class VigenerClass {
     constructor() {
-        this.abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~\\ áéíóúďťňľčšÁÉÍÓÚĎŤŇĽČŠúÚňô";
+        this.abc = "abcdefghijklmnopqrstuvwxyz";
+        // this.abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~\\ áéíóúďťňľčšÁÉÍÓÚĎŤŇĽČŠúÚňô";
         this.abcLength = this.abc.length;
     }
 
