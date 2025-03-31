@@ -9,7 +9,11 @@ const memeList = [
     "https://scontent-vie1-1.xx.fbcdn.net/v/t1.6435-9/71751359_1394444827398381_1579666336991150080_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=k_--dmwBSqgQ7kNvgHH6IbI&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=A2eXtnMcPED9xtQpwkHDmky&oh=00_AYATFvNsSLmoati2lMfQWCWjiUNkWeQ5jyCAhMoKeGYkog&oe=67BF3C46",
     "https://scontent-vie1-1.xx.fbcdn.net/v/t1.6435-9/76776556_1420494431460087_1289331955145375744_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=_TxndgJgCPMQ7kNvgH6An1t&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=Ajnzo5RVkQu78i27-s7VpLJ&oh=00_AYB8fvYMHifDVjjSOyjhRVmuIOQ1Yw9gtKkigdgfyXwj1g&oe=67BF2D2C",
     "https://scontent-vie1-1.xx.fbcdn.net/v/t1.6435-9/80830253_1475130095996520_2971860134650707968_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=k9tc3PBit64Q7kNvgFn_IcQ&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=AEwWk_KjZgRy28DyG6sNukq&oh=00_AYAlANyLKGMMC_Sxqe48yr3MXtEILlvd2eDfjo9y_c2j4Q&oe=67BF3FBE",
-    
+    // "https://scontent-vie1-1.cdninstagram.com/v/t51.29350-15/339328058_1005190700497846_196315215916414167_n.webp?stp=dst-jpg_e35_tt6&_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=110&_nc_ohc=pOyYTNR2FXIQ7kNvgG_1_fp&_nc_gid=3c4cc40773b94475ad81d24401e9d3e2&edm=ANTKIIoBAAAA&ccb=7-5&oh=00_AYAHHU2aM_snC2u7hqEhZc5P0AJEcDV4zK8TS6VBUWnk0w&oe=679EC923&_nc_sid=d885a2",
+    //"https://kmen.skauting.cz/cofk88fsfok4c2/uploads/2023/06/Farmer-Hits-Bitzer-With-a-Door-12102022183728-Filip-Komenda-Klacek.jpg",
+    //"https://scontent-vie1-1.xx.fbcdn.net/v/t1.6435-9/79888369_2617901068285798_893674976517816320_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=evh5tmGWGvUQ7kNvgFqZDb_&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=AvHNd8Xwl8ngQed-1PI_ODo&oh=00_AYAWXWsxWV6ClOBQcB5S5uuUhRCyTqG9bOIiIEvyOTnsjw&oe=67C06766",
+    // "https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/463404992_2898411647001684_4579051392922364889_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=DaqIz-SLXrkQ7kNvgGfH3P4&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=A9cD1O04xuzBNmMy0EDQ-g-&oh=00_AYDZUK_61y8hFNFnA1wYqJEJz5Ex8FYxF2ZrJim3L_T_wg&oe=679EAE76",
+
     // "https://scontent-vie1-1.cdninstagram.com/v/t51.29350-15/454360860_1221482152367635_4897612284294231972_n.webp?stp=dst-jpg_e35_p1080x1080_tt6&_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=axM-Ua4WQksQ7kNvgEg9CAV&_nc_gid=2e66a43327a2400eac29e91c5d8b1049&edm=ANTKIIoBAAAA&ccb=7-5&oh=00_AYDl29LqMDNP0s3ziZczM8q-9_PqrzXLno0CPNVlmeDLpA&oe=679D9D61&_nc_sid=d885a2",
     // "https://scontent-vie1-1.cdninstagram.com/v/t51.29350-15/448670932_1196458758050323_1440201345443266267_n.webp?stp=dst-jpg_e35_tt6&_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=LodskymOhFUQ7kNvgFnjKSQ&_nc_gid=e41c7a9da4284b2c9ef306f8fcd3a40d&edm=ANTKIIoBAAAA&ccb=7-5&oh=00_AYB8DSxwuNB3zR5CBiKhLBVutO8Oe_pId_Tl1H8gOZsgQg&oe=679DAA31&_nc_sid=d885a2",
     // "https://scontent-vie1-1.cdninstagram.com/v/t51.29350-15/453170792_507232075095159_7896064425293428088_n.webp?stp=dst-jpg_e35_p1080x1080_tt6&_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=103&_nc_ohc=9t1IvMHfJsIQ7kNvgHYPwHV&_nc_gid=ea774eb6f6d448b7b2cc4c259d7ac69a&edm=ANTKIIoBAAAA&ccb=7-5&oh=00_AYBMulQJ6WjcAKpImdsCfXxrwyH4RO_xhOwwX1tccgldfg&oe=679DBF8A&_nc_sid=d885a2",
@@ -33,9 +37,11 @@ function loadMeme(filename_) {
         const memeContainer = document.getElementById("meme-container");
         if (memeContainer) {
             memeImg = document.createElement("img");
-            memeImg.src = filename;
+            // memeImg.src = filename;
             memeImg.alt = "Meme";
+            memeImg.src = filename;
             memeImg.id = "meme";
+            memeImg.crossOrigin = "anonymous";
             try{
                 memeContainer.removeChild(document.getElementById("meme"));
             }catch(e){}

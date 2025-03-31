@@ -1,0 +1,27 @@
+body{
+    align-content: center;
+}
+#mainconstent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    resize:none;
+    border-radius: 5px;
+    padding: 5px;
+}
+#previews_table{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    resize:none;
+    border-radius: 5px;
+    padding: 5px;
+}
